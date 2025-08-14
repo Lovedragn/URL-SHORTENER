@@ -13,10 +13,11 @@ const App = () => {
     }
 
     try {
+      const VITE_BITLY_TOKEN = import.meta.env.VITE_BITLY_TOKEN;
       const res = await fetch("https://api-ssl.bitly.com/v4/shorten", {
         method: "POST",
         headers: {
-          Authorization: "Bearer 792ade048fb0d8fe58c2927ab76270b23047bf27",
+          Authorization: `Bearer ${VITE_BITLY_TOKEN}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
